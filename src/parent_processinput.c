@@ -1,3 +1,4 @@
+/* LEITOURGIKA SYSTHMATA 2021-22 - ERGASIA 1 - MAVROMMATIS PANAGIOTIS - sdi1800115 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -60,9 +61,6 @@ char** processFile(char *input_file,int * data_counter){
      while (chars=getline(&line, &len, file)!=-1)
    	{	
         data_array[counter]=strdup(line);
-   		//data_array[counter]="";
-        //strcat(data_array[counter],line);
-   		//strcpy(data_array[counter],line);
    		data_array[counter][strlen(data_array[counter])-1]='\0';//den thelw to '\n', opote termatizw to string mia thesh nwritera
    		counter++;
 

@@ -1,4 +1,4 @@
-//main_os1_child
+/* LEITOURGIKA SYSTHMATA 2021-22 - ERGASIA 1 - MAVROMMATIS PANAGIOTIS - sdi1800115 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

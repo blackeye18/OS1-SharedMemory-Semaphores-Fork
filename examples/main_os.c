@@ -1,3 +1,4 @@
+/* LEITOURGIKA SYSTHMATA 2021-22 - ERGASIA 1 - MAVROMMATIS PANAGIOTIS - sdi1800115 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,8 +43,6 @@ int main(int argc, char *argv[] )
 	if(data_array==NULL)
 		return -1;
 	
-
-
 /*
 	printf("%d\n",data_counter);
 	for(int i=0;i<data_counter;i++){
@@ -98,20 +97,25 @@ int main(int argc, char *argv[] )
 			sprintf(ptr, "%s", data_array[temp_int]);//apothikevw thn grammh sthn shared memory
 			sem_post(sem2);//enhmwrwnw to paidi oti graftike h grammh sthn shared memory
 		}
-		usleep(100);//0.0001 Seconds kathisterish gia na mhn yparxei periptwsh lathos apotelesmatos.
+		usleep(1000);//0.001 Seconds kathisterish ana process gia na mhn yparxei periptwsh lathos apotelesmatos.
 		sem_post(sem3);//ksekinaw na asxoloumai me thn epomenh diergasia
 		
 	}
 	
 	int status[no_of_processes];
+	int ret_kids=0;
 	for(int i=0;i<no_of_processes;i++){
 		waitpid(id[i],&status[i],0);
 
         int return_value = WEXITSTATUS(status[i]);
-        printf("Return value of %d : %d\n", id[i],return_value);
+        ret_kids+=return_value;
+        //printf("Return value of %d : %d\n", id[i],return_value);
     
 	}
-
+	if(ret_kids>0)
+		printf("Someting went wrong with %d kids\n",ret_kids);
+	else
+		printf("All kids returned 0!\n");
 	//while((temp=wait(&temp2))>0);
 
 //FREE'S
